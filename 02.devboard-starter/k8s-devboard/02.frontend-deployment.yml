@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-fe
+  namespace: devboard-ns
+  labels:
+    app: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: fe-c1
+        image: ramnir/devboard-frontend:latest
+        ports:
+        - containerPort: 4173
+        resources:
+          requests:   # minimum resources requirement
+            cpu: 10m #0.01 cores of CPU
+            memory: 64Mi # 67 mb RAM 
+
+          limits:   # maximum resources requirement
+            cpu: 250m  # 0.25 cores of CPU
+            memory: 128Mi  # RAM 
+

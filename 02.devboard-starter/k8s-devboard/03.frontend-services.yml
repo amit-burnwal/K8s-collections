@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: fe-svc
+  namespace: devboard-ns
+spec:
+  type: NodePort    
+  selector:         #in service object is only object where need not mention type of query(match labels or matchexpression)
+    app: frontend
+  ports:
+    - protocol: "TCP"
+      port: 80          # service port
+      targetPort: 4173   # container port  
+      nodePort: 30001
+
