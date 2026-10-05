@@ -50,6 +50,13 @@ spec:
                 name: devboard-configmap
                 key: POSTGRES_DB
 
+        readinessProbe:
+          exec:
+            command:
+              - /bin/sh
+              - -c
+              - pg_isready -U "$POSTGRES_USER" -d "$POSTGRES_DB"
+                
       volumes:
         - name: init
           configMap:

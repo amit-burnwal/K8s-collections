@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: backend      # this name we have to use to call backend service check in frontend ->vite-config.js ->target: 'http://backend:8080 
+  namespace: devboard-ns
+
+spec:
+  selector:
+    app: backend
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080 # container port
+  
