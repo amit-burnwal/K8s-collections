@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: be-c1
-        image: ramnir/devboard-frontend:latest
+        image: ramnir/devboard-backend:latest
         ports:
         - containerPort: 8080
         env:

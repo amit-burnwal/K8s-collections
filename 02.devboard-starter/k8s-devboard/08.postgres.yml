@@ -11,7 +11,7 @@ spec:
   selector:
     matchLabels:
       app: devboard-postgres
-  serviceName: postgres-service   # this is statefulset service -> 09.postgres-service
+  serviceName: postgres   # this is statefulset service -> 09.postgres-service
   template:
     metadata:
       labels:
